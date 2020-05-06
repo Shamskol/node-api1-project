@@ -1,5 +1,6 @@
 const express = require("express");
 const server = express();
+const db = require("./data/db.js");
 
 let users = [
   {
@@ -22,9 +23,14 @@ let users = [
     bio: " fat",
   },
 ];
+server.use(express.json());
 
 //endpoints
 server.get("/", (req, res) => {
+  db.find()
+  .then(users => {
+    
+  })
   res.json({ api: "running...." });
 });
 server.get("/api/users", (req, res) => {
